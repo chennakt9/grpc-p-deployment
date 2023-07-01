@@ -1,0 +1,41 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: productdb-pv-claim
+  labels:
+    app: postgres-storage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: authdb-pv-claim
+  labels:
+    app: postgres-storage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: orderdb-pv-claim
+  labels:
+    app: postgres-storage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

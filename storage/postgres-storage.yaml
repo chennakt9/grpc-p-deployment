@@ -1,0 +1,16 @@
+#https://phoenixnap.com/kb/postgresql-kubernetes
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-pv-volume
+  labels:
+    type: local
+    app: postgres-storage
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/c/Users/chenn/WS/dbTemp"

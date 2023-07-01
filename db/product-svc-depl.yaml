@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productdb
+  template:
+    metadata:
+      labels:
+        app: productdb
+    spec:
+      containers:
+        - name: productdb
+          image: postgres:10.1
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: productdb-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: productdb
+      volumes:
+        - name: productdb
+          persistentVolumeClaim:
+            claimName: productdb-pv-claim
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productdb
+  labels:
+    app: productdb
+spec:
+  type: NodePort
+  ports:
+   - port: 5432
+  selector:
+   app: productdb
