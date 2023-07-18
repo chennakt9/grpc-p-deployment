@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: productdb-pv-claim
+  namespace: stage
   labels:
     app: postgres-storage
 spec:
@@ -16,6 +17,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: authdb-pv-claim
+  namespace: stage
   labels:
     app: postgres-storage
 spec:
@@ -30,6 +32,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: orderdb-pv-claim
+  namespace: stage
   labels:
     app: postgres-storage
 spec:

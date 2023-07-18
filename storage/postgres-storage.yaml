@@ -3,6 +3,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: postgres-pv-volume
+  namespace: stage
   labels:
     type: local
     app: postgres-storage
