@@ -16,6 +16,13 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.18/samp
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.18/samples/addons/kiali.yaml
 ```
 
+
+### Microservice repo links
+1. https://github.com/chennakt9/api-gateway
+2. https://github.com/chennakt9/auth-ms
+3. https://github.com/chennakt9/product-ms
+4. https://github.com/chennakt9/order-ms
+
 ## Test
 ```curl
 curl --location 'http://127.0.0.1:80/auth/login' \
